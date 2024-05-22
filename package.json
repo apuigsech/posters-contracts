@@ -1,0 +1,19 @@
+{
+    "name": "",
+    "version": "",
+    "description": "",
+    "dependencies": {
+        "solhint": "^5.0.0"
+    },
+    "scripts": {
+        "clean": "rm -rf cache out",
+        "install": "forge install",
+        "lint": "bun run lint:sol",
+        "lint:sol": "forge fmt --check && bun solhint {script,src,test}/**/*.sol",
+        "build": "forge build",
+        "test": "forge test",
+        "test:coverage": "forge coverage",
+        "test:coverage:report": "forge coverage --report lcov && genhtml lcov.info --branch-coverage --output-dir coverage",
+        "deploy": "forge create PosterFactory --private-key ${PRIVATE_KEY} --constructor-args ${ADMIN_ACCOUNT} ${MINTER_ACCOUNT} --legacy"
+    }
+}
